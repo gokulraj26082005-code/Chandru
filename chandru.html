@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Profile - black & White Theme</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #fffbea;
+        color: #333;
+    }
+
+    header {
+        background-color: #2082A6;
+        padding: 20px;
+        text-align: center;
+        color: #333;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        border-bottom: 2px solid #2082A6;
+    }
+
+    nav a {
+        padding: 14px 20px;
+        display: block;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        background-color: #2082A6;
+        color: white;
+    }
+
+    main {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .profile-pic {
+        display: block;
+        margin: auto;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid #2082A6;
+    }
+
+    .card {
+        background: white;
+        border: 2px solid #2082A6;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+    }
+
+    h2 {
+        color: #FFD700;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #2082A6;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: #2082A6;
+        color: #333;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #333;
+        color: white;
+    }
+</style>
+<script>
+    function greetUser() {
+        alert("Welcome to the My Profile Website!");
+    }
+
+    function highlightCard(cardId) {
+        let card = document.getElementById(cardId);
+        card.style.backgroundColor = "#fffacd";
+        setTimeout(() => {
+            card.style.backgroundColor = "white";
+        }, 500);
+    }
+
+    function downloadProfile() {
+        const profileData = `
+        Student Profile:
+        Name: Chandru M
+        Age: 20
+        Email: chandru22@gmail.com
+        Location:kallakurichi, tamilnadu, India
+        Qualification: B.Sc Computer Science (Ongoing)
+        Skills: HTML, CSS, JavaScript, Python
+        `;
+
+        const blob = new Blob([profileData], { type: "text/plain" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "student_profile.txt";
+        link.click();
+    }
+</script>
+</head>
+<body onload="greetUser()">
+
+<header>
+    <h1>Welcome !</h1>
+</header>
+
+<nav>
+    <a href="#about" onclick="highlightCard('about')">About</a>
+    <a href="#details" onclick="highlightCard('details')">Details</a>
+    <a href="#qualification" onclick="highlightCard('qualification')">Qualification</a>
+    <a href="#skills" onclick="highlightCard('skills')">Skills</a>
+</nav>
+
+<main>
+    <img src=" 1.jpg" alt="Profile Picture" class="profile-pic">
+
+    <div id="about" class="card">
+        <h2>About Me</h2>
+        <p>Hi, I'm Chandru M, a passionate learner with a love for technology, problem-solving, and creativity.</p>
+    </div>
+
+    <div id="details" class="card">
+        <h2>Details</h2>
+        <ul>
+            <li><b>Age:</b> 20</li>
+            <li><b>Email:</b> chandru22@gmail.com</li>
+            <li><b>Location:</b>Kallakurichi, tamilnadu, India</li>
+        </ul>
+    </div>
+
+    <div id="qualification" class="card">
+        <h2>Qualification</h2>
+        <ul>
+            <li>Bachelor in Computer Science (Ongoing)</li>
+            <li>Higher Secondary Education - 95%</li>
+        </ul>
+    </div>
+
+    <div id="skills" class="card">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Python Programming</li>
+            <li>Web Development</li>
+        </ul>
+        <button onclick="downloadProfile()">Download Profile</button>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 Student Profile | Designed in Yellow & White Theme
+</footer>
+
+</body>
+</html>
